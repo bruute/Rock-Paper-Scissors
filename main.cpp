@@ -2,118 +2,59 @@
 //  main.cpp
 //  Rock_Paper_Scissors
 //
-//  Created by Yakov Leonov on 7/15/15.
+//  Created by Yakov Leonov 
 //  Copyright (c) 2015 bruute. All rights reserved.
 //
 
 #include <iostream>
+#include <unistd.h>
+#include "header.h"
 using namespace std;
 
 int main() {
     
-    
-    int rock=1;
-    int paper=2;
-    int scissors=3;
+    //initialize variables
     int userChoice;
     int compChoice;
-    
-    int userWins=0;
-    int compWins=0;
     int answer;
-
-    cout<<"Welcome to the rock paper & scissors game!"<<endl<<endl;
-   
+    
+    //welcome
+    printWelcome();
+    
+    sleep(2);
+    
     do {
-        cout<<"\nUsing your numberpad, choose:"<<endl;
-        cout<<"1 for rock"<<endl;
-        cout<<"2 for paper"<<endl;
-        cout<<"3 for scissors"<<endl;
-    
+        printMenu();
+        
         cin>>userChoice;
-    
-        if (userChoice == 1)
-        {
-            cout<<"Okay you chose: rock"<<endl;
-        }
-    
-        if (userChoice == 2)
-        {
-            cout<<"Okay you chose: paper"<<endl;
-        }
-
-        if (userChoice == 3)
-        {
-            cout<<"Okay you chose: scissors"<<endl;
-        }
-
-        cout<<"My turn!"<<endl<<endl;
-    
+        
+        choiceUserFunction (userChoice);
+        
+        sleep(1);
+        
+        cout<<"\nMy turn!"<<endl<<endl;
+        
+        //waits 2 seconds
+        sleep(1);
+        
         srand(time(NULL));
         
-        int compChoice = (rand() % 3) + 1;
-    
-        if (compChoice == 1)
-        {
-            cout<<"I chose: rock"<<endl;
-        }
+        compChoice = (rand() % 3) + 1;
         
-        if (compChoice == 2)
-        {
-            cout<<"I chose: paper"<<endl;
-        }
-    
-        if (compChoice == 3)
-        {
-            cout<<"I chose: scissors"<<endl;
-        }
-    
-    
-        if (userChoice == compChoice)
-        {
-            cout<<"ooh, looks like its a tie"<<endl;
-        }
-    
-        if (userChoice == 1 && compChoice == 3)
-        {
-            cout<<"You win!"<<endl;
-            userWins++;
+        choiceComputerFunction (compChoice);
         
-        }
-        if (userChoice == 2 && compChoice == 1)
-        {
-            cout<<"You win!"<<endl;
-            userWins++;
-        }
-        if (userChoice == 3 && compChoice == 2 )
-            {
-        cout<<"You win!"<<endl;
-                userWins++;
-            }
-    
-        if (userChoice == 3 && compChoice == 1)
-        {
-            cout<<"I win!"<<endl;
-            compWins++;
-        }
-        if (userChoice == 1 && compChoice == 2)
-        {
-            cout<<"I win!"<<endl;
-            compWins++;
-        }
-        if (userChoice == 2 && compChoice == 3)
-        {
-            cout<<"I win!"<<endl;
-            compWins++;
-        }
-    
-        cout<<"\nYou won: "<<userWins<<" times.\nI won: "<<compWins<<" times."<<endl;
-        cout<<"\nWould you like to play again? Type 1 for yes or 2 for no"<<endl;
+        winnerFunction(userChoice, compChoice);
+        
+        printPlayAgain();
+        
         cin>>answer;
-   
+        
     } while (answer == 1);
     
+    //prints if user presses any number but 1
     cout<<"\nBye!"<<endl;
     
     return 0;
 }
+
+
