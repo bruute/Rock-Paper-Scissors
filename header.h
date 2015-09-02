@@ -22,10 +22,56 @@ void printWelcome()
     cout<<"**********************************************"<<endl;
 }
 
+//Prints ASCII
+void printRock()
+{
+    cout<<"      _______    "<<endl;
+    cout<<" ----'   ____)   "<<endl;
+    cout<<"        (_____)  "<<endl;
+    cout<<"        (_____)  "<<endl;
+    cout<<"        (____)   "<<endl;
+    cout<<" ----.__(___)    "<<endl;
+}
+
+void printPaper()
+{
+    cout<<"      _______        "<<endl;
+    cout<<" ----'   ____)____   "<<endl;
+    cout<<"            ______)  "<<endl;
+    cout<<"            _______) "<<endl;
+    cout<<"            _______) "<<endl;
+    cout<<" ----.__________)    "<<endl;
+}
+
+void printScissors()
+{
+    cout<<"      _______        "<<endl;
+    cout<<" ----'   ____)____   "<<endl;
+    cout<<"            ______)  "<<endl;
+    cout<<"        __________)  "<<endl;
+    cout<<"        (____)       "<<endl;
+    cout<<" ----.__(___)        "<<endl;
+}
+
+void printUserWin()
+{
+    cout<<"\nYou win!"<<endl;
+}
+
+void printCompWin()
+{
+    cout<<"\nI win!"<<endl;
+}
+
+void printTie()
+{
+    cout<<"\nOoh, looks like its a tie!"<<endl;
+}
+
 //Prints menu for user to choose from
 void printMenu()
 {
-    cout<<"\nUsing your numberpad, choose:"<<endl;
+    cout<<"\nUsing your numberpad, enter"<<endl;
     
     cout<<"1 for ROCK"<<endl;
     
@@ -37,7 +83,7 @@ void printMenu()
 //Asks users if they want to repeat the program
 void printPlayAgain()
 {
-    cout<<"\nWould you like to play again? Type 1 for yes or 2 for no"<<endl;
+    cout<<"\nWould you like to play again? Enter 1 for yes or enter any key to exit"<<endl;
 }
 
 //Pressing 1=Rock, 2=Paper, 3=Scissors
@@ -46,16 +92,21 @@ int choiceUserFunction (int choice)
     if (choice == 1)
     {
         cout<<"You chose: ROCK"<<endl;
+        printRock();
+        
     }
     
     if (choice == 2)
     {
         cout<<"You chose: PAPER"<<endl;
+        printPaper();
+        
     }
     
     if (choice == 3)
     {
         cout<<"You chose: SCISSORS"<<endl;
+        printScissors();
     }
     
     return choice;
@@ -67,16 +118,19 @@ int choiceComputerFunction (int choice)
     if (choice == 1)
     {
         cout<<"I chose: ROCK"<<endl;
+        printRock();
     }
     
     if (choice == 2)
     {
         cout<<"I chose: PAPER"<<endl;
+        printPaper();
     }
     
     if (choice == 3)
     {
         cout<<"I chose: SCISSORS"<<endl;
+        printScissors();
     }
     
     return choice;
@@ -87,43 +141,43 @@ int winnerFunction (int a, int b)
 {
     if (a == b)
     {
-        cout<<"\nOoh, looks like its a tie!"<<endl;
+        printTie();
     }
     
     if (a == 1 && b == 3)
     {
-        cout<<"\nYou win!"<<endl;
-        
-        
+        printUserWin();
     }
     if (a == 2 && b == 1)
     {
-        cout<<"\nYou win!"<<endl;
+        printUserWin();
         
     }
     if (a == 3 && b == 2 )
     {
-        cout<<"\nYou win!"<<endl;
+        printUserWin();
         
     }
     
     if (a == 3 && b == 1)
     {
-        cout<<"\nI win!"<<endl;
+        printCompWin();
         
     }
     if (a == 1 && b == 2)
     {
-        cout<<"\nI win!"<<endl;
+        printCompWin();
     }
     if (a == 2 && b == 3)
     {
-        cout<<"\nI win!"<<endl;
+        printCompWin();
         
     }
     
     return 0;
 }
+
+
 
 
 #endif
