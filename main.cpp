@@ -2,7 +2,7 @@
 //  main.cpp
 //  Rock_Paper_Scissors
 //
-//  Created by Yakov Leonov 
+//  Created by Yakov Leonov
 //  Copyright (c) 2015 bruute. All rights reserved.
 //
 
@@ -56,5 +56,4 @@ int main() {
     
     return 0;
 }
-
 
